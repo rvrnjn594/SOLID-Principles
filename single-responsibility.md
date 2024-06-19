@@ -8,7 +8,7 @@ In oop(Java etc) you will often hear terms such as robustness, cohesion, couplin
 >
 > > The higher the cohesion - the better, since high cohesion implies easier maintenance and debugging, greater code functionality and reusability.
 >
-> The term cohesion is sometimes contrasted with the concept of [coupling](<(https://en.wikipedia.org/wiki/Coupling_%28computer_programming%29)), and often, loose coupling of modules is related to high cohesion.
+> The term cohesion is sometimes contrasted with the concept of [coupling](<(https://en.wikipedia.org/wiki/Coupling_%28computer_programming%29)>), and often, loose coupling of modules is related to high cohesion.
 >
 > Another widely used term is **robustness**, which could be defined as the ability of a computer system or algorithm to handle mistakes and malfunctions _(which could be caused by various factors such as programmer's mistake or incorrectly formatted user input)._
 >
