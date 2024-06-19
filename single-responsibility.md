@@ -30,7 +30,7 @@ The single responsibility principle is founded on one of the basic, general idea
 
 ##### Friends don't let friends code like this
 
-[Single Responsibility principle](https://springframework.guru/wp-content/uploads/2015/04/srp1.jpg)
+![Single Responsibility principle](https://springframework.guru/wp-content/uploads/2015/04/srp1.jpg)
 
 ## Examples illustrating the principle
 
