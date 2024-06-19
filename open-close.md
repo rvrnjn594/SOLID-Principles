@@ -75,10 +75,13 @@ Consider an insurance system that validates health insurance claims before appro
 
 > In the example above, we modified the ClaimApprovalManager class by adding a new _processVehicleClaim()_ method to incorporate a new functionality (claim approval of vehicle insurance).
 
-As apparant, this is a clear violation of the Open Closed Principle. We need to modify the class to support for a new functionality.  
- In fact, we violated the Open Closed Principle at the very first instance we wrote the ClaimApprovalManager class.  
-This may appeat innocuous that needs to keep pace with fast changing business demands.  
- For each change, you need to modify, test, and deploy the entire application. That not only makes the application fragile and expensive to extend but also makes it prone to software bugs.
+As apparant, this is a clear violation of the Open Closed Principle. We need to modify the class to support for a new functionality.
+
+In fact, we violated the Open Closed Principle at the very first instance we wrote the ClaimApprovalManager class.
+
+This may appeat innocuous that needs to keep pace with fast changing business demands.
+
+For each change, you need to modify, test, and deploy the entire application. That not only makes the application fragile and expensive to extend but also makes it prone to software bugs.
 
 ## Coding to the Open Closed Principle
 
@@ -92,22 +95,23 @@ The ideal approach for each insurance claim example would have been to design th
 **InsuranceSurveyor.java**
 
     package guru.springframework.blog.openclosedprinciple;
+
     public abstract class InsuranceSurveyor {
         public abstract boolean isValidClaim();
     }
 
 > Next we will write specific classes for each type of claim validation.
->
+
 > **HealthInsuranceSurveyor.java**
 >
 >       package guru.springframework.blog.openclosedprinciple;
 >
 >       public class HealthInsuranceSurveyor extends InsuranceSurveyor {
->       public boolean isValidClaim() {
->            System.out.println("HealthInsuranceSurveyor: Validating health insurance claim...");
->           /*Logic to validate health insurance claims*/
->           return true;
->       }
+>           public boolean isValidClaim() {
+>               System.out.println("HealthInsuranceSurveyor: Validating health insurance claim...");
+>               /*Logic to validate health insurance claims*/
+>               return true;
+>           }
 >       }
 >
 > **VehicleInsuranceSurveyor.java**
@@ -115,13 +119,13 @@ The ideal approach for each insurance claim example would have been to design th
 >       package guru.springframework.blog.openclosedprinciple;
 >
 >       public class VehicleInsuranceSurveyor extends InsuranceSurveyor{
->       public boolean isValidClaim(){
->       System.out.println("VehicleInsuranceSurveyor: Validating vehicle insurance claim...");
->       /*Logic to validate vehicle insurance claims*/
->       return true;
+>           public boolean isValidClaim(){
+>               System.out.println("VehicleInsuranceSurveyor: Validating vehicle insurance claim...");
+>               /*Logic to validate vehicle insurance claims*/
+>               return true;
+>           }
 >       }
->       }
-
+>
 > In the example above, we wrote the _HealthInsuranceSurveyor_ and _VehicleInsuranceSurveyor_ classes that extend the abstract _InsuranceSurveyor_ class.  
 > Both classes provide different implementation of the _isValidClaim()_ method. We will now write the _ClaimApprovalManager_ class to follow the Open/Closed Principle.
 
@@ -137,7 +141,8 @@ The ideal approach for each insurance claim example would have been to design th
         }
     }
 
-> In the example above, we wrote a _processClaim()_ method to accept a _InsuranceSurveyor_ type instead of specifying a concrete type. In this way, any further addition of _InsuranceSurveyor_ implementations will not affect the _ClaimApprovalManager_ class.
+> In the example above, we wrote a _processClaim()_ method to accept a _InsuranceSurveyor_ type instead of specifying a concrete type.  
+> In this way, any further addition of _InsuranceSurveyor_ implementations will not affect the _ClaimApprovalManager_ class.
 
 Our insurance system is now **Open** to support more types of insurance claims and **closed** for any modifications whenever a new claim type is added.
 
@@ -180,4 +185,6 @@ The output is:
 
 ### Summary
 
-Most of the times real closure of a software entity is practically not possible because there is always a chance that a change will violate the closure. For example, in our insurance example, a change in the business rule to process a specific type of claim will require modifying the ClaimApprovalManager class. So, during enterprise application development, even if you might not always manage to write code that satisfies the Open Closed Principle in every aspect, taking the steps towards it will be beneficial as the application evolves.
+**Most of the times real closure of a software entity is practically not possible because there is always a chance that a change will violate the closure.**
+
+> For example, in our insurance example, a change in the business rule to process a specific type of claim will require modifying the ClaimApprovalManager class. So, during enterprise application development, even if you might not always manage to write code that satisfies the Open Closed Principle in every aspect, taking the steps towards it will be beneficial as the application evolves.
